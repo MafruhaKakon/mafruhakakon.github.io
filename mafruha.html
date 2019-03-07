@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href=<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+div {
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Anton';
+  text-align: center;
+  font-size: 60px;
+  color: indigo;
+  margin: 60px 0 0 0;
+}
+h2 {
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+  color: white;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+body {
+  background-color: skyblue;
+}
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+      padding: 5px;
+    }
+  
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+    <ul>
+    <li><button onclick=Appetizer()>Appetizer</button></li>
+    <li><button onclick=MainCourse()>Main Course</button></li>
+    <li><button onclick=Dessert()>Dessert</button></li>
+  </ul>
+<h1>Mafruha's restaurant</h1>
+<h2> A Brown Food Eatery</h2>
+
+<div id="mafruha"></div>
+
+<script>
+AppetizerImages = [
+  'url("http://www.haleem365.com/wp-content/uploads/2017/04/haleem.jpg")',
+  'url("https://1.bp.blogspot.com/-jSXvxsn6nus/Vk8Trv6kvkI/AAAAAAAD4ZE/evKwxGJn5kY/s1600/1.JPG")',
+  'url("https://steemitimages.com/DQmYdjRFL9QcUNQyu3PRPktzRBf7ZciiMkbLEro6HvP8718/fuska.jpg")',
+]
+MainCourseImages = [
+  'url("http://lh6.ggpht.com/-eMNZzuK-bt8/Tss8BWP172I/AAAAAAAAASE/F1JOVj9z3tY/IMG_8494_thumb%25255B1%25255D.jpg?imgmax=800")',
+  'url("https://maldivescook.com/wp-content/uploads/beef-curry.jpg")',
+  'url("https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Nihari_Khaas.jpg")',
+]
+DessertImages = [
+  'url("https://www.rachnas-kitchen.com/wp-content/uploads/2017/07/rasmalai-2-e1505245876472-gpo.jpg',
+  'url("http://www.indobase.com/recipes/rec-images/payesh.jpg")',
+  'url("https://www.chezshuchi.com/images/rasgulla11.JPG")',
+]
+
+AppetizerDivs = [
+ '<div class="item"><p>Haleem <span class="price">$7.99</span><br /><small> Made of wheat, barley, meat (usually minced beef or mutton (goat meat or Lamb and mutton) or chicken), lentils and spices, sometimes rice is also used. This dish is slow cooked for seven to eight hours, which results in a paste-like consistency, blending the flavors of spices, meat, barley and wheat. </small></p></div>',
+'<div class="item"><p>Paneer Pakoda <span class="price">$3.99</span><br /><small> They are dipped in a batter made from gram flour and then deep-fried. The most popular varieties include pyaaz pakora, made from onion, and aloo pakora, made from potato. Other variations include paalak pakora, made from spinach, and paneer pakora, made from paneer (soft cottage cheese).</small></p></div>',
+'<div class="item"><p> Fuchka <span class="price">$6.99 per plate</span><br /><small> A Puchka is made with a mixture of boiled gram and mashed potatoes as filling, the chutney is tangy and the water is spicy. It is slightly bigger as compared to our normal puris. It is made of wheat flour. </small></p></div>',
+]
+
+MainCourseDivs = [
+  '<div class="item"><p>Goat Rezala <span class="price">$15.99</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
+  '<div class="item"><p>Beaf Curry <span class="price">$10.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
+  '<div class="item"><p> Nihari <span class="price">$12.99</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+]
+
+DessertDivs = [
+  '<div class="item"><p>Rasmalai <span class="price">$1.99 each</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
+  '<div class="item"><p> Payesh <span class="price">$3.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
+  '<div class="item"><p> Rasgulla <span class="price">$2.00 each</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+]
+  
+  
+function Appetizer() {
+  anu = document.getElementById("mafruha")
+  anu.innerHTML = ''
+  anu.innerHTML += AppetizerDivs [0]
+  anu.innerHTML += AppetizerDivs [1]
+  anu.innerHTML += AppetizerDivs [2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = AppetizerImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = AppetizerImages[1]
+  items[1].style.backgroundSize = '100% 100%'
+  items[2].style.background = AppetizerImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
+
+function MainCourse() {
+  anu = document.getElementById("mafruha")
+  anu.innerHTML = ''
+  anu.innerHTML += MainCourseDivs [0]
+  anu.innerHTML += MainCourseDivs [1]
+  anu.innerHTML += MainCourseDivs [2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = MainCourseImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = MainCourseImages[1]
+  items[1].style.backgroundSize = '100% 100%'
+  items[2].style.background = MainCourseImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
+
+function Dessert() {
+  anu = document.getElementById("mafruha")
+  anu.innerHTML = ''
+  anu.innerHTML += DessertDivs [0]
+  anu.innerHTML += DessertDivs [1]
+  anu.innerHTML += DessertDivs [2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = DessertImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = DessertImages[1]
+  items[1].style.backgroundSize = '100% 100%'
+  items[2].style.background = DessertImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
