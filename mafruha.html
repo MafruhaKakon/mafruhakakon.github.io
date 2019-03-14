@@ -2,7 +2,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/assets/jquery.js"></script>
-<link href=<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <style>
 body {
   font-family: helvetica, sans-serif;
@@ -47,15 +47,12 @@ p {
   -webkit-transition: height .5s;
   -moz-transition: height .5s;
 }
-
 small {
   opacity: 0;
 }
-
 .show-description p {
   height: 150px;
 }
-
 .show-description small {
   opacity: 1;
 }
@@ -97,7 +94,6 @@ body {
     font-size: 16px;
   }
 }
-
 </style>
 
 </head>
@@ -107,6 +103,8 @@ body {
     <li><button onclick=Appetizer()>Appetizer</button></li>
     <li><button onclick=MainCourse()>Main Course</button></li>
     <li><button onclick=Dessert()>Dessert</button></li>
+	<li><button onclick=Drinks()>Drinks</button></li>
+	
   </ul>
 <h1>Mafruha's restaurant</h1>
 <h2> A Brown Food Eatery</h2>
@@ -123,31 +121,43 @@ MainCourseImages = [
   'url("http://lh6.ggpht.com/-eMNZzuK-bt8/Tss8BWP172I/AAAAAAAAASE/F1JOVj9z3tY/IMG_8494_thumb%25255B1%25255D.jpg?imgmax=800")',
   'url("https://maldivescook.com/wp-content/uploads/beef-curry.jpg")',
   'url("https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Nihari_Khaas.jpg")',
+  'url("https://static.toiimg.com/photo/59268557.cms")'
 ]
 DessertImages = [
-  'url("https://www.rachnas-kitchen.com/wp-content/uploads/2017/07/rasmalai-2-e1505245876472-gpo.jpg',
+  'url("https://www.rachnas-kitchen.com/wp-content/uploads/2017/07/rasmalai-2-e1505245876472-gpo.jpg")',
   'url("http://www.indobase.com/recipes/rec-images/payesh.jpg")',
   'url("https://www.chezshuchi.com/images/rasgulla11.JPG")',
+  'url("https://preppykitchen.com/wp-content/uploads/2018/03/Mocha-Cake-beauty-1140x1425.jpg")',
+  'url("https://www.plattershare.com/common/uploaded_files/recipe/5873b18c8a9b2.jpg")',
 ]
-
+DrinksImages = [
+	'url("https://i.pinimg.com/originals/f1/10/f6/f110f6aabf771105475cbdc306181c7c.jpg")',
+	'url("https://i.pinimg.com/originals/9f/b5/a0/9fb5a0a6c8d098932cb09228e1e89580.jpg")',
+	'url("http://www.tastekatadka.com/wp-content/uploads/2016/05/IMG_6373_low.jpg")',
+]
 AppetizerDivs = [
- '<div class="item"><p>Haleem <span class="price">$7.99</span><br /><small> Made of wheat, barley, meat (usually minced beef or mutton (goat meat or Lamb and mutton) or chicken), lentils and spices, sometimes rice is also used. This dish is slow cooked for seven to eight hours, which results in a paste-like consistency, blending the flavors of spices, meat, barley and wheat. </small></p></div>',
-'<div class="item"><p>Paneer Pakoda <span class="price">$3.99</span><br /><small> They are dipped in a batter made from gram flour and then deep-fried. The most popular varieties include pyaaz pakora, made from onion, and aloo pakora, made from potato. Other variations include paalak pakora, made from spinach, and paneer pakora, made from paneer (soft cottage cheese).</small></p></div>',
-'<div class="item"><p> Fuchka <span class="price">$6.99 per plate</span><br /><small> A Puchka is made with a mixture of boiled gram and mashed potatoes as filling, the chutney is tangy and the water is spicy. It is slightly bigger as compared to our normal puris. It is made of wheat flour. </small></p></div>',
+ '<div class="item" onclick=this.classList.toggle("show-description")><p>Haleem <span class="price">$7.99</span><br /><small> Made of wheat, barley, meat (usually minced beef or mutton (goat meat or Lamb and mutton) or chicken), lentils and spices, sometimes rice is also used. This dish is slow cooked for seven to eight hours, which results in a paste-like consistency, blending the flavors of spices, meat, barley and wheat. </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Paneer Pakoda <span class="price">$3.99</span><br /><small> They are dipped in a batter made from gram flour and then deep-fried. The most popular varieties include pyaaz pakora, made from onion, and aloo pakora, made from potato. Other variations include paalak pakora, made from spinach, and paneer pakora, made from paneer (soft cottage cheese).</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p> Fuchka <span class="price">$6.99 per plate</span><br /><small> A Puchka is made with a mixture of boiled gram and mashed potatoes as filling, the chutney is tangy and the water is spicy. It is slightly bigger as compared to our normal puris. It is made of wheat flour. </small></p></div>',
 ]
-
 MainCourseDivs = [
-  '<div class="item"><p>Goat Rezala <span class="price">$15.99</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
-  '<div class="item"><p>Beaf Curry <span class="price">$10.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
-  '<div class="item"><p> Nihari <span class="price">$12.99</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Goat Rezala <span class="price">$15.99</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Beaf Curry <span class="price">$10.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Nihari <span class="price">$12.99</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p> Luchi With Other Delicious Dishes <span class="price">$12.99</span><br /><small>  Luchi is nothing but the poori with spicy potato curry, and is deep fried in ghee traditionally. </small></p></div>',
 ]
-
 DessertDivs = [
-  '<div class="item"><p>Rasmalai <span class="price">$1.99 each</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
-  '<div class="item"><p> Payesh <span class="price">$3.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
-  '<div class="item"><p> Rasgulla <span class="price">$2.00 each</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Rasmalai <span class="price">$1.99 each</span><br /><small> made in Yogurt, Cashew and Poppy seeds paste that gives it a rich flavour. The dish is filled with loads of flavour and subtle taste from the use of cardamom and nutmeg. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Payesh <span class="price">$3.99</span><br /><small> Beef Curry with tender beef, potatoes, carrots, and bell peppers braised in coconut milk and curry spices makes an amazing meal the whole family will love. Rich, hearty and flavorful, its a perfect with steamed rice! </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Rasgulla <span class="price">$2.00 each</span><br /><small> Slow-cooked meat mainly shank meat of beef or lamb and mutton, goat meat and chicken, along with bone marrow. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Mocha Cake <span class="price">$1.99 per piece</span><br /><small> mocha cake is moist, fluffy and packed with chocolate and coffee flavor. Between each layer you’ll find a mocha buttercream, chocolate ganache and chopped chocolate covered espresso beans.</small></p></div>', 
+	'<div class="item" onclick=this.classList.toggle("show-description")><p> Patishapta <span class="price">$1.99 per piece</span><br /><small> Patishapta are thin crepes or pancakes made with refined flour, rice flour and semolina stuffed with a delicious caramelized shredded coconut filling.</small></p></div>', 
 ]
-  
+DrinksDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Lassi <span class="price">$2.99 per glass</span><br /><small> Lassi is a blend of yogurt, water, spices and sometimes fruit. Traditional lassi (a.k.a., "sweet lassi", or simply "lassi") is a sweet savoury drink, sometimes flavoured with ground and roasted cumin. Salty lassi, however, contains salt and other spices, instead of sugar, and is similar to doogh. </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Borhani <span class="price">$2.99 per glass</span><br /><small> made from sour doi, coriander and mint. It is considered by some to be a type of lassi. </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Aam Panna <span class="price">$1.99 per glass</span><br /><small> Aam Panna is made with unripe green mangoes and an assortment of spices. The drink is known for its heat-resistant properties. </small></p></div>',
+] 
   
 function Appetizer() {
   anu = document.getElementById("mafruha")
@@ -163,13 +173,13 @@ function Appetizer() {
   items[2].style.background = AppetizerImages[2]
   items[2].style.backgroundSize = '100% 100%'
 }
-
 function MainCourse() {
   anu = document.getElementById("mafruha")
   anu.innerHTML = ''
   anu.innerHTML += MainCourseDivs [0]
   anu.innerHTML += MainCourseDivs [1]
   anu.innerHTML += MainCourseDivs [2]
+  anu.innerHTML += MainCourseDivs [3]
   items = document.getElementsByClassName("item")
   items[0].style.background = MainCourseImages[0]
   items[0].style.backgroundSize = '100% 100%'
@@ -177,14 +187,17 @@ function MainCourse() {
   items[1].style.backgroundSize = '100% 100%'
   items[2].style.background = MainCourseImages[2]
   items[2].style.backgroundSize = '100% 100%'
+  items[3].style.background = MainCourseImages[3]
+  items[3].style.backgroundSize = '100% 100%'
 }
-
 function Dessert() {
   anu = document.getElementById("mafruha")
   anu.innerHTML = ''
   anu.innerHTML += DessertDivs [0]
   anu.innerHTML += DessertDivs [1]
   anu.innerHTML += DessertDivs [2]
+  anu.innerHTML += DessertDivs [3]
+  anu.innerHTML += DessertDivs [4]
   items = document.getElementsByClassName("item")
   items[0].style.background = DessertImages[0]
   items[0].style.backgroundSize = '100% 100%'
@@ -192,8 +205,25 @@ function Dessert() {
   items[1].style.backgroundSize = '100% 100%'
   items[2].style.background = DessertImages[2]
   items[2].style.backgroundSize = '100% 100%'
+  items[3].style.background = DessertImages[3]
+  items[3].style.backgroundSize = '100% 100%'
+  items[4].style.background = DessertImages[4]
+  items[4].style.backgroundSize = '100% 100%'
 }
-
+function Drinks() {
+  anu = document.getElementById("mafruha")
+  anu.innerHTML = ''
+  anu.innerHTML += DrinksDivs [0]
+  anu.innerHTML += DrinksDivs [1]
+  anu.innerHTML += DrinksDivs [2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = DrinksImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = DrinksImages[1]
+  items[1].style.backgroundSize = '100% 100%'
+  items[2].style.background = DrinksImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
   $('div').on('click', function() {
       $(this).toggleClass('show-description');
   });
